@@ -1,3 +1,5 @@
+using NetCoreAdoNet.Forms;
+
 namespace NetCoreAdoNet
 {
     internal static class Program
@@ -12,7 +14,7 @@ namespace NetCoreAdoNet
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new Forms.Form01PrimerAdo());
-
+            Application.Run(new Form02BuscadorEmpleados());
         }
     }
 }
