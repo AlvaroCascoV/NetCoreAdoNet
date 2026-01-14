@@ -19,7 +19,8 @@ namespace NetCoreAdoNet
             //Application.Run(new Form04EliminarPlantilla());
             //Application.Run(new Form05UpdateSalas());
             //Application.Run(new Form06UpdateSalasClases());
-            Application.Run(new Form07DepartamentosEmpleados());
+            //Application.Run(new Form07DepartamentosEmpleados());
+            Application.Run(new Form07DepartamentosEmpleadosPaco());
         }
     }
 }

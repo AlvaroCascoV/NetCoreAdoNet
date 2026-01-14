@@ -9,13 +9,13 @@ using System.Windows.Forms;
 
 namespace NetCoreAdoNet.Forms
 {
-    public partial class Form07DepartamentosEmpleados : Form
+    public partial class Form07DepartamentosEmpleadosPaco : Form
     {
-        RepositoryDepartamentosEmpleados repo;
-        public Form07DepartamentosEmpleados()
+        RepositoryDepartamentosEmpleadosPaco repo;
+        public Form07DepartamentosEmpleadosPaco()
         {
             InitializeComponent();
-            this.repo = new RepositoryDepartamentosEmpleados();
+            this.repo = new RepositoryDepartamentosEmpleadosPaco();
             this.LoadDepartamentosAsync();
         }
 
@@ -28,15 +28,23 @@ namespace NetCoreAdoNet.Forms
                 this.lstDepartamentos.Items.Add(nombre);
             }
         }
-        
-        private async void LoadEmpleados()
+
+        private async void lstDepartamentos_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+            string nombreDept = this.lstDepartamentos.SelectedItem.ToString();
+            await this.LoadEmpleados(nombreDept);
+
+        }
+
+        private async Task LoadEmpleados(string nombreDepartamento)
         {
             if (this.lstDepartamentos.SelectedItem == null)
             {
                 return;
             }
-            this.label3.Text = "DEPT " + this.lstDepartamentos.SelectedItem.ToString();
-            List<string> empleados = await this.repo.GetApellidosEmpleadosAsync(this.lstDepartamentos.SelectedItem.ToString());
+            this.label3.Text = "DEPT " + nombreDepartamento;
+            List<string> empleados = await this.repo.GetApellidosEmpleadosAsync(nombreDepartamento);
             this.lstEmpleados.Items.Clear();
             foreach (string apellido in empleados)
             {
@@ -44,12 +52,7 @@ namespace NetCoreAdoNet.Forms
             }
         }
 
-        private async void lstDepartamentos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            LoadEmpleados();
-        }
-
-        private async void btnEliminar_Click(object sender, EventArgs e)
+        private async void btnEliminar_Click_1(object sender, EventArgs e)
         {
             if (this.lstEmpleados.SelectedItem == null)
             {
@@ -57,8 +60,9 @@ namespace NetCoreAdoNet.Forms
             }
             string apeSeleccionado = this.lstEmpleados.SelectedItem.ToString();
             await this.repo.DeleteEmpleadoAsync(apeSeleccionado);
+            string nombreDepartamento = this.lstDepartamentos.SelectedItem.ToString();
+            await this.LoadEmpleados(nombreDepartamento);
             this.label4.Text = "EMPLEADO " + apeSeleccionado + " ELIMINADO";
-            this.LoadEmpleados();
         }
     }
 }
