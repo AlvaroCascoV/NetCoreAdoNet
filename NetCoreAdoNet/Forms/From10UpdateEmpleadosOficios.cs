@@ -29,7 +29,7 @@ namespace NetCoreAdoNet.Forms
             }
         }
 
-        public async void LoadDatosSalario()
+        public async Task LoadDatosSalario()
         {
             string oficio = this.lstOficios.SelectedItem.ToString();
             List<int> datosSalario = await this.repo.GetDatosSalarioAsync(oficio);
@@ -50,7 +50,7 @@ namespace NetCoreAdoNet.Forms
                 {
                     this.lstEmpleados.Items.Add(ape);
                 }
-                this.LoadDatosSalario();
+                await this.LoadDatosSalario();
             }
         }
 
