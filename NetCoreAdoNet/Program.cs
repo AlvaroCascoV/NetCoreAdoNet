@@ -21,7 +21,8 @@ namespace NetCoreAdoNet
             //Application.Run(new Form06UpdateSalasClases());
             //Application.Run(new Form07DepartamentosEmpleados());
             //Application.Run(new Form07DepartamentosEmpleadosPaco());
-            Application.Run(new Form08CrudDepartamentos());
+            //Application.Run(new Form08CrudDepartamentos());
+            Application.Run(new Form09CrudHospital());
         }
     }
 }
