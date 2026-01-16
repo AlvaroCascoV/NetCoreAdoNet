@@ -50,7 +50,7 @@ namespace NetCoreAdoNet.Forms
                 {
                     this.lstEmpleados.Items.Add(ape);
                 }
-            this.LoadDatosSalario();
+                this.LoadDatosSalario();
             }
         }
 
