@@ -9,10 +9,10 @@ using System.Windows.Forms;
 
 namespace NetCoreAdoNet.Forms
 {
-    public partial class From10UpdateEmpleadosOficios : Form
+    public partial class Form10UpdateEmpleadosOficios : Form
     {
         RepositoryUpdateEmpelados repo;
-        public From10UpdateEmpleadosOficios()
+        public Form10UpdateEmpleadosOficios()
         {
             InitializeComponent();
             this.repo = new RepositoryUpdateEmpelados();

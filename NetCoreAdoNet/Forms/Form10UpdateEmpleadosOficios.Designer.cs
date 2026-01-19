@@ -1,6 +1,6 @@
 ﻿namespace NetCoreAdoNet.Forms
 {
-    partial class From10UpdateEmpleadosOficios
+    partial class Form10UpdateEmpleadosOficios
     {
         /// <summary>
         /// Required designer variable.
