@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Metrics;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -16,6 +17,17 @@ using System.Windows.Forms;
 //create procedure SP_INSERT_DEPARTAMENTO
 //(@numero int, @nombre nvarchar(50), @localidad nvarchar(50))
 //as
+//	insert into DEPT values (@numero, @nombre, @localidad)
+//go
+
+//alter procedure SP_INSERT_DEPARTAMENTO
+//(@numero int, @nombre nvarchar(50), @localidad nvarchar(50))
+//as
+//	if(UPPER(@localidad) = 'TERUEL')
+//	begin
+//		print 'TERUEL NO EXISTE'
+//	end
+//	else
 //	insert into DEPT values (@numero, @nombre, @localidad)
 //go
 
