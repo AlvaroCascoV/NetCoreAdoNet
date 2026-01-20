@@ -1,4 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
+using NetCoreAdoNet.Helpers;
 using NetCoreAdoNet.Models;
 using System;
 using System.Collections.Generic;
@@ -43,7 +45,11 @@ namespace NetCoreAdoNet.Repositories
 
         public RepositoryParametersOut()
         {
-            string connectionString = @"Data Source=LOCALHOST\DEVELOPER;Initial Catalog=HOSPITAL;Persist Security Info=True;User ID=SA;Encrypt=True;Trust Server Certificate=True";
+            //Podemos añadir el helper para centralizar la logica de configuracion
+            IConfigurationRoot configuration = HelperConfiguration.GetConfiguration();
+            string connectionString = configuration.GetConnectionString("SqlLocalTajamar");
+
+            //string connectionString = @"Data Source=LOCALHOST\DEVELOPER;Initial Catalog=HOSPITAL;Persist Security Info=True;User ID=SA;Encrypt=True;Trust Server Certificate=True";
             this.cn = new SqlConnection(connectionString);
             this.com = new SqlCommand();
             this.com.Connection = this.cn;
